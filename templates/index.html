@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memora - AI Customer Support</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <h2>Memora</h2>
+            </div>
+
+            <button class="new-chat" onclick="newChat()">
+                + New Conversation
+            </button>
+
+            <div class="sidebar-section">
+                <p class="sidebar-heading">YOUR ASSISTANT</p>
+
+                <div class="sidebar-item active">
+                    <span>💬</span>
+                    Customer Support
+                </div>
+
+                <div class="sidebar-item">
+                    <span>🧠</span>
+                    Persistent Memory
+                </div>
+
+                <div class="sidebar-item">
+                    <span>📋</span>
+                    Support History
+                </div>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="memory-status">
+                    <span class="status-dot"></span>
+                    <div>
+                        <strong>Memory Active</strong>
+                        <p>Powered by Hindsight</p>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+                    <h3>Customer Support</h3>
+                    <p class="subtitle">
+                        Your personal AI support assistant
+                    </p>
+                </div>
+
+                <div class="online-status">
+                    <span class="status-dot"></span>
+                    AI Online
+                </div>
+
+            </header>
+
+
+            <!-- Chat Area -->
+            <section class="chat-container">
+
+                <div class="welcome-section" id="welcome-section">
+
+                    <div class="welcome-icon">✦</div>
+
+                    <h1>How can I help you today?</h1>
+
+                    <p>
+                        Tell me about your problem. I'll help you find
+                        a solution and remember our conversation for next time.
+                    </p>
+
+                    <!-- Suggested Questions -->
+                    <div class="suggestions">
+
+                        <button
+                            class="suggestion-card"
+                            onclick="sendSuggestion('My headphones are not connecting to Bluetooth.')">
+
+                            <span class="suggestion-icon">🎧</span>
+
+                            <div>
+                                <strong>Device connectivity</strong>
+                                <p>My headphones won't connect</p>
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            class="suggestion-card"
+                            onclick="sendSuggestion('My product is not working properly.')">
+
+                            <span class="suggestion-icon">📦</span>
+
+                            <div>
+                                <strong>Product issue</strong>
+                                <p>Something isn't working</p>
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            class="suggestion-card"
+                            onclick="sendSuggestion('I need help with my previous support issue.')">
+
+                            <span class="suggestion-icon">🔄</span>
+
+                            <div>
+                                <strong>Previous issue</strong>
+                                <p>Continue a previous problem</p>
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            class="suggestion-card"
+                            onclick="sendSuggestion('I need help with my order.')">
+
+                            <span class="suggestion-icon">🛒</span>
+
+                            <div>
+                                <strong>Order assistance</strong>
+                                <p>Help me with my order</p>
+                            </div>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Messages appear here -->
+                <div id="messages" class="messages"></div>
+
+
+                <!-- Typing Indicator -->
+                <div id="typing-indicator" class="typing-indicator hidden">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <p>Memora is thinking...</p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Input Area -->
+            <footer class="input-section">
+
+                <form id="chat-form" class="chat-form">
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Describe your problem..."
+                        rows="1"
+                        required
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        id="send-button"
+                        class="send-button"
+                        aria-label="Send message">
+
+                        ➤
+
+                    </button>
+
+                </form>
+
+                <p class="input-disclaimer">
+                    Memora uses AI and persistent memory to personalize support.
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
